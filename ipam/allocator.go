@@ -406,7 +406,7 @@ func (alloc *Allocator) Delete(ident string) error {
 func (alloc *Allocator) delete(ident string) error {
 	cidrs := alloc.removeAllOwned(ident)
 	if len(cidrs) == 0 {
-		return fmt.Errorf("Delete: no addresses for %s", ident)
+		return nil
 	}
 	for _, cidr := range cidrs {
 		alloc.space.Free(cidr.Addr)

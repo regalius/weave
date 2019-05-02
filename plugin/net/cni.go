@@ -207,6 +207,7 @@ func (c *CNIPlugin) CmdDel(args *skel.CmdArgs) error {
 	}
 	if err != nil {
 		logOnStderr(fmt.Errorf("unable to release IP address: %s", err))
+		return err
 	}
 	return nil
 }
