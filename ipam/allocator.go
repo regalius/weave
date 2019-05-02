@@ -406,6 +406,7 @@ func (alloc *Allocator) Delete(ident string) error {
 func (alloc *Allocator) delete(ident string) error {
 	cidrs := alloc.removeAllOwned(ident)
 	if len(cidrs) == 0 {
+		alloc.debugln("Delete: ", ident, "has no IP addresses assigned")
 		return nil
 	}
 	for _, cidr := range cidrs {
